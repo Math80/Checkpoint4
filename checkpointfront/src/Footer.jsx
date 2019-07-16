@@ -7,7 +7,7 @@ function Footer() {
   return (
     <div className="Footer">
       <Link to="/mentions-legales">Mentions légales</Link>
-      <Link to="/contactez-nous">Contact</Link>
+      <Link to="/contact">Contact</Link>
     </div>
   );
 }

@@ -18,8 +18,8 @@ function NavBar() {
       <nav className="navi">
         <ul className="Header">
           <li><NavLink activeClassName="active" exact to="/">Accueil</NavLink></li>
-          <li><NavLink activeClassName="active" to="/laisser-un-avis">Réservation</NavLink></li>
-          <li><NavLink activeClassName="active" to="/contactez-nous">Contactez-nous</NavLink></li>
+          <li><NavLink activeClassName="active" to="/booking">Réservation</NavLink></li>
+          <li><NavLink activeClassName="active" to="/contact">Contactez-nous</NavLink></li>
         </ul>
       </nav>
 
