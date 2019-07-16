@@ -13,7 +13,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      {/* <Home /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/event" component={Event} />
