@@ -6,8 +6,8 @@ class Contact extends Component {
   constructor(props){
     super(props);
     this.state = {
-      firstname: '',
       lastname: '',
+      firstname: '',
       email: '',
       topic: '',
       comment: '',
@@ -51,6 +51,12 @@ class Contact extends Component {
                 Email:
               </span>
               <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
+            </label>
+            <label>
+              <span>
+                Sujet:
+              </span>
+              <input type="text" name="topic" value={this.state.topic} onChange={this.handleChange} />
             </label>
             <label>
               <span>
