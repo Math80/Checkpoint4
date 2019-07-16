@@ -22,7 +22,7 @@ class Contact extends Component {
     });
   }
   handleSubmit(event) {
-    alert('Le formulaire a été soumis : ' + this.state.value);
+    alert('Le formulaire a été soumis');
     event.preventDefault();
   }
 
