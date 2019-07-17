@@ -1,4 +1,6 @@
 .Contact {
+  position: relative;
+  min-height: calc(100vh - 175px);
 
   form {
     display: flex;

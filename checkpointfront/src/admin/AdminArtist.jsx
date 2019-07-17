@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './AdminArtist.scss';
 
 class AdminArtist extends Component {
@@ -20,8 +21,25 @@ class AdminArtist extends Component {
     });
   }
   handleSubmit(event) {
-    alert('Le formulaire a été soumis');
     event.preventDefault();
+      const config = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state),
+      };
+      const url = `http://localhost:3000/api/newartist`;
+      fetch(url, config)
+        .then((res) => {
+          if (res.ok) {
+            NotificationManager.success('', 'Artiste ajouté avec succès!');
+          } else {
+            NotificationManager.warning('', 'Erreur lors de l\'ajout de l\'artiste.', 3000);
+          }
+        }).catch(() => {
+          NotificationManager.error('', 'Erreur lors de l\'ajout de l\'artiste.', 5000);
+        });
   }
 
   render() {
@@ -36,30 +54,30 @@ class AdminArtist extends Component {
               <span>
                 Nom:
               </span>
-              <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
+              <input type="text" name="name" onChange={this.handleChange} />
             </label>
             <label>
               <span>
                 logo:
               </span>
-              <input type="text" name="logo" value={this.state.logo} onChange={this.handleChange} />
+              <input type="text" name="logo" onChange={this.handleChange} />
             </label>
             <label>
               <span>
                 Discipline:
               </span>
-              <input type="text" name="discipline" value={this.state.discipline} onChange={this.handleChange} />
+              <input type="text" name="discipline" onChange={this.handleChange} />
             </label>
             <label>
               <span>
                 Presentation:
               </span>
-              <textarea name="presentation" value={this.state.presentation} onChange={this.handleChange} />
+              <textarea name="presentation" onChange={this.handleChange} />
             </label>
             <input type="submit" value="Envoyer" />
           </form>
         </div>
-
+        <NotificationContainer />
       </div>
     )
   }

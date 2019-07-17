@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './AdminEvent.scss';
 
 class AdminEvent extends Component {
@@ -8,6 +9,7 @@ class AdminEvent extends Component {
       title: '',
       picture: '',
       article: '',
+      artist_id: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,8 +21,27 @@ class AdminEvent extends Component {
     });
   }
   handleSubmit(event) {
-    alert('Le formulaire a été soumis');
     event.preventDefault();
+    console.log(this.state);
+      const config = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state),
+      };
+      const url = `http://localhost:3000/api/newevent`;
+      fetch(url, config)
+        .then((res) => {
+          console.log(res);
+          if (res.ok) {
+            NotificationManager.success('', 'Évènement ajouté avec succès!');
+          } else {
+            NotificationManager.warning('', 'Erreur lors de l\'ajout de l\'évènement.', 3000);
+          }
+        }).catch(() => {
+          NotificationManager.error('', 'Erreur lors de l\'ajout de l\'évènement.', 5000);
+        });
   }
 
   render() {
@@ -35,24 +56,30 @@ class AdminEvent extends Component {
               <span>
                 Nom de l'évènement:
               </span>
-              <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+              <input type="text" name="title" onChange={this.handleChange} />
             </label>
             <label>
               <span>
                 Image:
               </span>
-              <input type="text" name="picture" value={this.state.picture} onChange={this.handleChange} />
+              <input type="text" name="picture" onChange={this.handleChange} />
             </label>
             <label>
               <span>
                 Article:
               </span>
-              <textarea name="article" value={this.state.article} onChange={this.handleChange} />
+              <textarea name="article" onChange={this.handleChange} />
+            </label>
+            <label>
+              <span>
+                Artiste:
+              </span>
+              <input name="artist_id" onChange={this.handleChange} />
             </label>
             <input type="submit" value="Envoyer" />
           </form>
         </div>
-
+        <NotificationContainer />
       </div>
     )
   }

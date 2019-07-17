@@ -6,15 +6,11 @@ function NavBar() {
   return(
     <div className="NavBar">
       <div className="title">
-        <NavLink activeClassName="active" exact to="/"><img src="./image/Logo.png" alt="Logo" /></NavLink>
+        <NavLink activeClassName="active" exact to="/"><img src="/image/Logo.png" alt="Logo" /></NavLink>
       </div>
       <div>
       <h1>WILD CIRCUS</h1>
       </div>
-     {/*  <a href="#0" className="cd-nav-trigger">
-          Menu
-        <span />
-      </a> */}
       <nav className="navi">
         <ul className="Header">
           <li><NavLink activeClassName="active" exact to="/">Accueil</NavLink></li>
