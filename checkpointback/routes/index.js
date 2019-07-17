@@ -60,11 +60,11 @@ router.get('/event/:id', (req, response) => {
 // créer un nouvel artiste
 router.post('/newartist', (req, response) => {
   const formData = req.body;
-  connection.query('INSERT INTO artist SET ?', formData, (err, results) => {
+  connection.query('INSERT INTO artist SET ?', formData, (err) => {
     if (err) {
       response.sendStatus(500);
     } else {
-      response.sendStatus(200, results);
+      response.sendStatus(200);
     }
   });
 });
@@ -72,11 +72,12 @@ router.post('/newartist', (req, response) => {
 // créer un nouvel event
 router.post('/newevent', (req, response) => {
   const formData = req.body;
-  connection.query('INSERT INTO event SET ?', formData, (err, results) => {
+  connection.query('INSERT INTO event SET ?', formData, (err) => {
     if (err) {
+      console.log(err);
       response.sendStatus(500);
     } else {
-      response.sendStatus(200, results);
+      response.sendStatus(200);
     }
   });
 });
