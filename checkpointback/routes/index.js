@@ -83,8 +83,8 @@ router.post('/newevent', (req, response) => {
 
 // suppression d'un artiste
 router.delete('/artist/off/:id', (req, res) => {
-  const idartist = req.params.artist_id;
-  connection.query('DELETE FROM artist WHERE id = ?', [idartist], (err) => {
+  const idartist = req.params.id;
+  connection.query('DELETE FROM artist WHERE id = ?', idartist, (err) => {
     if (err) {
       res.sendStatus(500);
     } else {
@@ -95,8 +95,8 @@ router.delete('/artist/off/:id', (req, res) => {
 
 // suppression d'un event
 router.delete('/event/off/:id', (req, res) => {
-  const idevent = req.params.event_id;
-  connection.query('DELETE FROM artist WHERE id = ?', [idevent], (err) => {
+  const idevent = req.params.id;
+  connection.query('DELETE FROM event WHERE id = ?', idevent, (err) => {
     if (err) {
       res.sendStatus(500);
     } else {
