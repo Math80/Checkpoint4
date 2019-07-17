@@ -8,6 +8,8 @@ import Event from './Event';
 import Artist from './Artist';
 import Contact from './Contact';
 import Booking from './Booking';
+import AdminArtist from './admin/AdminArtist';
+import AdminEvent from './admin/AdminEvent';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/artist" component={Artist} />
         <Route path="/booking" component={Booking} />
         <Route path="/contact" component={Contact} />
+        <Route path="/admin/AdminArtist" component={AdminArtist} />
+        <Route path="/admin/AdminEvent" component={AdminEvent} />
       </Switch>
       <Footer />
     </div>
