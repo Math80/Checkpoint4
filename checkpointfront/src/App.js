@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Booking from './Booking';
 import AdminArtist from './admin/AdminArtist';
 import AdminEvent from './admin/AdminEvent';
+import AdminDeleteArtist from './admin/AdminDeleteArtist';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/admin/AdminArtist" component={AdminArtist} />
         <Route path="/admin/AdminEvent" component={AdminEvent} />
+        <Route path="/admin/AdminDeleteArtist" component={AdminDeleteArtist} />
       </Switch>
       <Footer />
     </div>
