@@ -1,14 +1,7 @@
 import express from 'express';
-import { connection } from '../conf';
+import connection from '../conf';
 
 const router = express.Router();
-
-const bodyParser = require('body-parser');
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({
-  extended: true
-}));
 
 /* GET index page. */
 router.get('/', (req, res) => {
@@ -18,9 +11,31 @@ router.get('/', (req, res) => {
 });
 
 // afficher tous les artistes
-router.get('/artist', (req, response) => {
-  const theartist = req.query.playlist_id;
-  connection.query('SELECT * FROM artist', theartist, (err, results) => {
+router.get('/artists', (req, response) => {
+  connection.query('SELECT * FROM artist', (err, results) => {
+    if (err) {
+      response.sendStatus(500);
+    } else {
+      response.json(results);
+    }
+  });
+});
+
+// afficher tous les events
+router.get('/events', (req, response) => {
+  connection.query('SELECT * FROM event', (err, results) => {
+    if (err) {
+      response.sendStatus(500);
+    } else {
+      response.json(results);
+    }
+  });
+});
+
+// afficher un artiste par id
+router.get('/artist/:id', (req, response) => {
+  const idartist = req.params.id;
+  connection.query('SELECT a.name, a.logo, a.presentation, a.discipline FROM artist a WHERE id = ?', idartist, (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -29,10 +44,11 @@ router.get('/artist', (req, response) => {
   });
 });
 
-// afficher tous les events
-router.get('/event', (req, response) => {
-  const theevent = req.query.playlist_id;
-  connection.query('SELECT * FROM event', theevent, (err, results) => {
+
+// afficher un event par id
+router.get('/event/:id', (req, response) => {
+  const idevent = req.params.id;
+  connection.query('SELECT e.title, e.picture, e.article FROM event e WHERE id = ?', idevent, (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -56,7 +72,7 @@ router.post('/newartist', (req, response) => {
 // créer un nouvel event
 router.post('/newevent', (req, response) => {
   const formData = req.body;
-  connection.query('INSERT INTO artist SET ?', formData, (err, results) => {
+  connection.query('INSERT INTO event SET ?', formData, (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
