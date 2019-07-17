@@ -22,7 +22,6 @@ class AdminEvent extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
       const config = {
         method: 'POST',
         headers: {
@@ -33,7 +32,6 @@ class AdminEvent extends Component {
       const url = `http://localhost:3000/api/newevent`;
       fetch(url, config)
         .then((res) => {
-          console.log(res);
           if (res.ok) {
             NotificationManager.success('', 'Évènement ajouté avec succès!');
           } else {

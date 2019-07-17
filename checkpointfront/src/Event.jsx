@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import EventUnic from './EventUnic'
 import './Event.scss';
 
 
@@ -6,14 +7,30 @@ class Event extends Component {
   constructor(props){
     super(props);
     this.state = {
-      
-
+      events: []
     }
   }
+
+  componentDidMount(){
+    fetch('http://localhost:3000/api/events')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          events: data
+        });
+      });
+  }
+
   render(){
+    const { events } = this.state;
     return(
       <div className="Event">
-        <h1>EVENT</h1>
+        <div className="title">
+          <h1>EVENTS</h1>
+        </div>
+        <div className="artistMap">
+          {events.map(item => <EventUnic events={item} />)}
+        </div>
 
       </div>
     )
