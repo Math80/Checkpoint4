@@ -20,10 +20,30 @@ router.get('/artists', (req, response) => {
     }
   });
 });
-
 // afficher tous les events
 router.get('/events', (req, response) => {
   connection.query('SELECT * FROM event', (err, results) => {
+    if (err) {
+      response.sendStatus(500);
+    } else {
+      response.json(results);
+    }
+  });
+});
+
+// afficher tous les artistes par nom, discipline
+router.get('/artists/name', (req, response) => {
+  connection.query('SELECT a.name, a.discipline FROM artist a', (err, results) => {
+    if (err) {
+      response.sendStatus(500);
+    } else {
+      response.json(results);
+    }
+  });
+});
+// afficher tous les events par titre, image
+router.get('/events/title', (req, response) => {
+  connection.query('SELECT e.title, e.picture FROM event e', (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -43,8 +63,6 @@ router.get('/artist/:id', (req, response) => {
     }
   });
 });
-
-
 // afficher un event par id
 router.get('/event/:id', (req, response) => {
   const idevent = req.params.id;
@@ -68,7 +86,6 @@ router.post('/newartist', (req, response) => {
     }
   });
 });
-
 // créer un nouvel event
 router.post('/newevent', (req, response) => {
   const formData = req.body;
@@ -92,7 +109,6 @@ router.delete('/artist/off/:id', (req, res) => {
     }
   });
 });
-
 // suppression d'un event
 router.delete('/event/off/:id', (req, res) => {
   const idevent = req.params.id;
@@ -117,7 +133,6 @@ router.put('/artist/:id', (req, res) => {
     }
   });
 });
-
 // Modif d'un event id
 router.put('/event/:id', (req, res) => {
   const idevent = req.params.id;
