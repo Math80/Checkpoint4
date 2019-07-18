@@ -33,7 +33,7 @@ router.get('/events', (req, response) => {
 
 // afficher tous les artistes par nom, discipline
 router.get('/artists/name', (req, response) => {
-  connection.query('SELECT a.name, a.discipline FROM artist a', (err, results) => {
+  connection.query('SELECT a.id, a.name, a.discipline FROM artist a', (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -103,6 +103,7 @@ router.delete('/artist/off/:id', (req, res) => {
   const idartist = req.params.id;
   connection.query('DELETE FROM artist WHERE id = ?', idartist, (err) => {
     if (err) {
+      console.log(err);
       res.sendStatus(500);
     } else {
       res.sendStatus(200);
