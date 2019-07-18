@@ -26,7 +26,7 @@ class Event extends Component {
     return(
       <div className="Event">
         <div className="title">
-          <h1>EVENTS</h1>
+          <h1>Les Évènements</h1>
         </div>
         <div className="artistMap">
           {events.map(item => <EventUnic events={item} />)}

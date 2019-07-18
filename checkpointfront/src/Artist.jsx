@@ -26,7 +26,7 @@ class Artist extends Component {
     return(
       <div className="Artist">
         <div className="title">
-          <h1>ARTIST</h1>
+          <h1>Les Artistes</h1>
         </div>
         <div className="artistMap">
           {artists.map(item => <ArtistUnic artists={item} />)}

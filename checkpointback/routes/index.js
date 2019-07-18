@@ -41,9 +41,9 @@ router.get('/artists/name', (req, response) => {
     }
   });
 });
-// afficher tous les events par titre, image
+// afficher tous les events par titre, article
 router.get('/events/title', (req, response) => {
-  connection.query('SELECT e.title, e.picture FROM event e', (err, results) => {
+  connection.query('SELECT e.title, e.article FROM event e', (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -103,7 +103,6 @@ router.delete('/artist/off/:id', (req, res) => {
   const idartist = req.params.id;
   connection.query('DELETE FROM artist WHERE id = ?', idartist, (err) => {
     if (err) {
-      console.log(err);
       res.sendStatus(500);
     } else {
       res.sendStatus(200);
@@ -115,6 +114,7 @@ router.delete('/event/off/:id', (req, res) => {
   const idevent = req.params.id;
   connection.query('DELETE FROM event WHERE id = ?', idevent, (err) => {
     if (err) {
+      console.log(err);
       res.sendStatus(500);
     } else {
       res.sendStatus(200);

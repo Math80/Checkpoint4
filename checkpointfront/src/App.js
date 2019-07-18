@@ -11,6 +11,7 @@ import Booking from './Booking';
 import AdminArtist from './admin/AdminArtist';
 import AdminEvent from './admin/AdminEvent';
 import AdminDeleteArtist from './admin/AdminDeleteArtist';
+import AdminDeleteEvent from './admin/AdminDeleteEvent';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/admin/AdminArtist" component={AdminArtist} />
         <Route path="/admin/AdminEvent" component={AdminEvent} />
         <Route path="/admin/AdminDeleteArtist" component={AdminDeleteArtist} />
+        <Route path="/admin/AdminDeleteEvent" component={AdminDeleteEvent} />
       </Switch>
       <Footer />
     </div>

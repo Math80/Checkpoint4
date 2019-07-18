@@ -1,7 +1,12 @@
 .Artist {
   display: flex;
   flex-direction: column;
-  background-color: lightgreen;
+  /* background-color: rgb(130, 211, 171); */
+
+
+  h1 {
+    font-size: 3em;
+  }
 
   .artistMap {
     display: flex;
