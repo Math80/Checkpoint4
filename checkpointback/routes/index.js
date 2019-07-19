@@ -97,6 +97,18 @@ router.post('/newevent', (req, response) => {
     }
   });
 });
+// créer une réservation
+router.post('/booking', (req, response) => {
+  const formData = req.body;
+  connection.query('INSERT INTO booking SET ?', formData, (err) => {
+    if (err) {
+      console.log(err);
+      response.sendStatus(500);
+    } else {
+      response.sendStatus(200);
+    }
+  });
+});
 
 // suppression d'un artiste
 router.delete('/artist/off/:id', (req, res) => {
