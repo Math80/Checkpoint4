@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import './AdminEvent.scss';
+import './AdminManageEvent.scss';
 
-class AdminEvent extends Component {
+class AdminManageEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,9 +45,9 @@ class AdminEvent extends Component {
 
   render() {
     return(
-      <div className="AdminEvent">
+      <div className="AdminManageEvent">
         <div>
-          <h1>Admin Event</h1>
+          <h1>Modifier un évènement</h1>
         </div>
         <div className="contactForm">
           <form onSubmit={this.handleSubmit}>
@@ -79,8 +79,7 @@ class AdminEvent extends Component {
           </form>
         </div>
         <div className="crud">
-          <NavLink activeClassName="active" to="/admin/AdminManageEvent"><button>Modifier</button></NavLink>
-          <NavLink activeClassName="active" to="/admin/AdminDeleteEvent"><button>Supprimer</button></NavLink>
+          <NavLink activeClassName="active" to="/admin/AdminEvent"><button>Retour Admin</button></NavLink>
         </div>
         <NotificationContainer />
       </div>
@@ -88,4 +87,4 @@ class AdminEvent extends Component {
   }
 }
 
-export default AdminEvent;
+export default AdminManageEvent;

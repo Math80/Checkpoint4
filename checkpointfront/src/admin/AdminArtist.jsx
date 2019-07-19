@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './AdminArtist.scss';
 
@@ -76,6 +77,10 @@ class AdminArtist extends Component {
             </label>
             <input type="submit" value="Envoyer" />
           </form>
+        </div>
+        <div className="crud">
+          <NavLink activeClassName="active" to="/admin/AdminManageArtist"><button>Modifier</button></NavLink>
+          <NavLink activeClassName="active" to="/admin/AdminDeleteArtist"><button>Supprimer</button></NavLink>
         </div>
         <NotificationContainer />
       </div>

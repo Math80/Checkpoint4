@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './AdminDeleteEvent.scss';
 
@@ -55,6 +56,9 @@ class AdminDeleteEvent extends Component {
               </li>
             ))}
           </ul> 
+        </div>
+        <div className="crud">
+          <NavLink activeClassName="active" to="/admin/AdminEvent"><button>Retour Admin</button></NavLink>
         </div>
         <NotificationContainer />
       </div>

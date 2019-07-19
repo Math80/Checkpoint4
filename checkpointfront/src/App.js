@@ -12,6 +12,9 @@ import AdminArtist from './admin/AdminArtist';
 import AdminEvent from './admin/AdminEvent';
 import AdminDeleteArtist from './admin/AdminDeleteArtist';
 import AdminDeleteEvent from './admin/AdminDeleteEvent';
+import AdminManageEvent from './admin/AdminManageEvent';
+import AdminManageArtist from './admin/AdminManageArtist';
+
 
 function App() {
   return (
@@ -23,6 +26,8 @@ function App() {
         <Route path="/artist" component={Artist} />
         <Route path="/booking" component={Booking} />
         <Route path="/contact" component={Contact} />
+        <Route path="/admin/AdminManageEvent" component={AdminManageEvent} />
+        <Route path="/admin/AdminManageArtist" component={AdminManageArtist} />
         <Route path="/admin/AdminArtist" component={AdminArtist} />
         <Route path="/admin/AdminEvent" component={AdminEvent} />
         <Route path="/admin/AdminDeleteArtist" component={AdminDeleteArtist} />
