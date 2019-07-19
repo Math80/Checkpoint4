@@ -43,7 +43,7 @@ router.get('/artists/name', (req, response) => {
 });
 // afficher tous les events par titre, article
 router.get('/events/title', (req, response) => {
-  connection.query('SELECT e.title, e.article FROM event e', (err, results) => {
+  connection.query('SELECT e.id, e.title, e.article FROM event e', (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -55,7 +55,7 @@ router.get('/events/title', (req, response) => {
 // afficher un artiste par id
 router.get('/artist/:id', (req, response) => {
   const idartist = req.params.id;
-  connection.query('SELECT a.name, a.logo, a.presentation, a.discipline FROM artist a WHERE id = ?', idartist, (err, results) => {
+  connection.query('SELECT a.id, a.name, a.logo, a.presentation, a.discipline FROM artist a WHERE id = ?', idartist, (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -66,7 +66,7 @@ router.get('/artist/:id', (req, response) => {
 // afficher un event par id
 router.get('/event/:id', (req, response) => {
   const idevent = req.params.id;
-  connection.query('SELECT e.title, e.picture, e.article FROM event e WHERE id = ?', idevent, (err, results) => {
+  connection.query('SELECT a.id, e.title, e.picture, e.article FROM event e WHERE id = ?', idevent, (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
