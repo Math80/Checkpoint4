@@ -39,6 +39,7 @@ class AdminDeleteArtist extends Component {
     }).catch(() => {
       NotificationManager.error('', 'Erreur lors de suppression de l\'artiste.', 5000);
     });
+    setTimeout(() => { this.componentDidMount() }, 500)
   }
 
   render(){

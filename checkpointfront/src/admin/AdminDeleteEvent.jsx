@@ -38,6 +38,7 @@ class AdminDeleteEvent extends Component {
     }).catch(() => {
       NotificationManager.error('', 'Erreur lors de suppression de l\'évènement.', 5000);
     });
+    setTimeout(() => { this.componentDidMount() }, 500)
   }
 
   render(){
