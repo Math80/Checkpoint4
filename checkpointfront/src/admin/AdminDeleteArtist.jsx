@@ -45,7 +45,7 @@ class AdminDeleteArtist extends Component {
     return(
       <div className="AdminDeleteArtist">
         <div className="title">
-          <h1>SUPPRESSSION ARTISTES</h1>
+          <h1>SUPPRESSION ARTISTES</h1>
         </div>
         <div className="ArtistList">
           <ul>

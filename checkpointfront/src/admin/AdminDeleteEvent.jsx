@@ -45,7 +45,7 @@ class AdminDeleteEvent extends Component {
     return(
       <div className="AdminDeleteEvent">
         <div className="title">
-          <h1>SUPPRESSSION ÉVÈNEMENTS</h1>
+          <h1>SUPPRESSION ÉVÈNEMENTS</h1>
         </div>
         <div className="EventList">
           <ul>

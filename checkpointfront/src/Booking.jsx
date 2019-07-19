@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 import './Booking.scss';
 
 
@@ -9,8 +10,9 @@ class Booking extends Component {
       lastname: '',
       firstname: '',
       email: '',
-      topic: '',
+      name: '',
       date: '',
+      event_id: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,8 +24,25 @@ class Booking extends Component {
     });
   }
   handleSubmit(event) {
-    alert('Le formulaire a été soumis');
     event.preventDefault();
+      const config = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state),
+      };
+      const url = `http://localhost:3000/api/booking`;
+      fetch(url, config)
+        .then((res) => {
+          if (res.ok) {
+            NotificationManager.success('', 'Réservation réalisée avec succès!');
+          } else {
+            NotificationManager.warning('', 'Erreur lors de la réservation.', 3000);
+          }
+        }).catch(() => {
+          NotificationManager.error('', 'Erreur lors de l\'ajout de la réservation.', 5000);
+        });
   }
 
   render(){
@@ -65,13 +84,20 @@ class Booking extends Component {
             </label>
             <label>
               <span>
-                Email:
+                Date:
               </span>
               <input type="date" name="date" value={this.state.date} onChange={this.handleChange} />
+            </label>
+            <label>
+              <span>
+                Event:
+              </span>
+              <input name="event_id" onChange={this.handleChange} />
             </label>
             <input type="submit" value="Envoyer" />
           </form>
         </div>
+        <NotificationContainer />
       </div>
     )
   }
