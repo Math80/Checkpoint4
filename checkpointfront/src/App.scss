@@ -1,5 +1,21 @@
 .App {
   text-align: center;
   background-color: rgb(130, 211, 171);
+
+  button {
+    background-color: lightgreen;
+    border-radius: 5px;
+    border: none;
+    margin: 10px;
+    padding: 7px;
+    color: black;
+
+    &:hover{
+      background-color: lightcoral;
+      transform: scale(1.2);
+      transition: transform .2s;
+      color: white;
+    }
+  }
 }
 

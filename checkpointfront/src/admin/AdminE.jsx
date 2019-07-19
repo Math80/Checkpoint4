@@ -10,6 +10,9 @@ function AdminE() {
       <NavLink activeClassName="active" to="/admin/AdminEvent"><button>Ajouter un évènement</button></NavLink>
       <NavLink activeClassName="active" to="/admin/AdminManageEvent"><button>Modifier un évènement</button></NavLink>
       <NavLink activeClassName="active" to="/admin/AdminDeleteEvent"><button>Supprimer un évènement</button></NavLink>
+      <div>
+        <NavLink activeClassName="active" to="/admin/AdminGeneral"><button>Retour Admin</button></NavLink>
+      </div>
     </div>
   )
 }
