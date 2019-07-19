@@ -46,7 +46,7 @@ class AdminDeleteArtist extends Component {
     return(
       <div className="AdminDeleteArtist">
         <div className="title">
-          <h1>SUPPRESSION ARTISTES</h1>
+          <h1>SUPPRIMER UN ARTISTE</h1>
         </div>
         <div className="ArtistList">
           <ul>
@@ -58,7 +58,7 @@ class AdminDeleteArtist extends Component {
           </ul> 
         </div>
         <div className="crud">
-          <NavLink activeClassName="active" to="/admin/AdminArtist"><button>Retour Admin</button></NavLink>
+          <NavLink activeClassName="active" to="/admin/AdminA"><button>Retour Admin</button></NavLink>
         </div>
         <NotificationContainer />
       </div>

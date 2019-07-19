@@ -47,7 +47,7 @@ class AdminManageEvent extends Component {
     return(
       <div className="AdminManageEvent">
         <div>
-          <h1>Modifier un évènement</h1>
+          <h1>MODIFIER UN ÉVÈNEMENT</h1>
         </div>
         <div className="contactForm">
           <form onSubmit={this.handleSubmit}>
@@ -79,7 +79,7 @@ class AdminManageEvent extends Component {
           </form>
         </div>
         <div className="crud">
-          <NavLink activeClassName="active" to="/admin/AdminEvent"><button>Retour Admin</button></NavLink>
+          <NavLink activeClassName="active" to="/admin/AdminE"><button>Retour Admin</button></NavLink>
         </div>
         <NotificationContainer />
       </div>

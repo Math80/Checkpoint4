@@ -7,12 +7,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'react-notifications/lib/notifications.css';
 
-
+import ScrollToTop from './ScrollToTop';
 
   ReactDOM.render(
   
       <BrowserRouter>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </BrowserRouter>
 
     , document.getElementById('root'));

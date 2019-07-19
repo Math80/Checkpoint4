@@ -46,7 +46,7 @@ class AdminDeleteEvent extends Component {
     return(
       <div className="AdminDeleteEvent">
         <div className="title">
-          <h1>SUPPRESSION ÉVÈNEMENTS</h1>
+          <h1>SUPPRIMER UN ÉVÈNEMENT</h1>
         </div>
         <div className="EventList">
           <ul>
@@ -58,7 +58,7 @@ class AdminDeleteEvent extends Component {
           </ul> 
         </div>
         <div className="crud">
-          <NavLink activeClassName="active" to="/admin/AdminEvent"><button>Retour Admin</button></NavLink>
+          <NavLink activeClassName="active" to="/admin/AdminE"><button>Retour Admin</button></NavLink>
         </div>
         <NotificationContainer />
       </div>

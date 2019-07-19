@@ -47,7 +47,7 @@ class AdminManageArtist extends Component {
     return(
       <div className="AdminManageArtist">
         <div>
-          <h1>Modifier un artiste</h1>
+          <h1>MODIFIER UN ARTISTE</h1>
         </div>
         <div className="contactForm">
           <form onSubmit={this.handleSubmit}>
@@ -79,7 +79,7 @@ class AdminManageArtist extends Component {
           </form>
         </div>
         <div className="crud">
-          <NavLink activeClassName="active" to="/admin/AdminArtist"><button>Retour Admin</button></NavLink>
+          <NavLink activeClassName="active" to="/admin/AdminA"><button>Retour Admin</button></NavLink>
         </div>
         <NotificationContainer />
       </div>

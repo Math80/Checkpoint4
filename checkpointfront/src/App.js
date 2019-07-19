@@ -8,6 +8,8 @@ import Event from './Event';
 import Artist from './Artist';
 import Contact from './Contact';
 import Booking from './Booking';
+import AdminA from './admin/AdminA';
+import AdminE from './admin/AdminE';
 import AdminArtist from './admin/AdminArtist';
 import AdminEvent from './admin/AdminEvent';
 import AdminDeleteArtist from './admin/AdminDeleteArtist';
@@ -26,8 +28,10 @@ function App() {
         <Route path="/artist" component={Artist} />
         <Route path="/booking" component={Booking} />
         <Route path="/contact" component={Contact} />
-        <Route path="/admin/AdminManageEvent" component={AdminManageEvent} />
+        <Route path="/admin/AdminA" component={AdminA} />
+        <Route path="/admin/AdminE" component={AdminE} />
         <Route path="/admin/AdminManageArtist" component={AdminManageArtist} />
+        <Route path="/admin/AdminManageEvent" component={AdminManageEvent} />
         <Route path="/admin/AdminArtist" component={AdminArtist} />
         <Route path="/admin/AdminEvent" component={AdminEvent} />
         <Route path="/admin/AdminDeleteArtist" component={AdminDeleteArtist} />
