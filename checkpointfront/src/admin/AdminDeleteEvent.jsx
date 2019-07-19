@@ -24,7 +24,6 @@ class AdminDeleteEvent extends Component {
 
   onDelete = (event) => {
     const id = event.target.value;
-    console.log(id);
     const config = {
       method: 'DELETE',
     };

@@ -34,12 +34,12 @@ class AdminManageArtist extends Component {
       fetch(url, config)
         .then((res) => {
           if (res.ok) {
-            NotificationManager.success('', 'Artiste ajouté avec succès!');
+            NotificationManager.success('', 'Artiste modifié avec succès!');
           } else {
-            NotificationManager.warning('', 'Erreur lors de l\'ajout de l\'artiste.', 3000);
+            NotificationManager.warning('', 'Erreur lors de la modification de l\'artiste.', 3000);
           }
         }).catch(() => {
-          NotificationManager.error('', 'Erreur lors de l\'ajout de l\'artiste.', 5000);
+          NotificationManager.error('', 'Erreur lors de la modification de l\'artiste.', 5000);
         });
   }
 
