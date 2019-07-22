@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.scss';
-import Artist from './Artist';
-import Event from './Event';
+import Artist from '../artists/Artist';
+import Event from '../events/Event';
 import TexteAccueil from './TexteAccueil';
 
 function Home() {
