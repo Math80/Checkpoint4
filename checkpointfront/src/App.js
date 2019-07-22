@@ -9,14 +9,14 @@ import Artist from './artists/Artist';
 import Contact from './contact/Contact';
 import Booking from './booking/Booking';
 import AdminGeneral from './admin/AdminGeneral';
-import AdminA from './admin/AdminA';
-import AdminE from './admin/AdminE';
-import AdminArtist from './admin/AdminArtist';
-import AdminEvent from './admin/AdminEvent';
-import AdminDeleteArtist from './admin/AdminDeleteArtist';
-import AdminDeleteEvent from './admin/AdminDeleteEvent';
-import AdminManageEvent from './admin/AdminManageEvent';
-import AdminManageArtist from './admin/AdminManageArtist';
+import AdminA from './admin/adminartist/AdminA';
+import AdminE from './admin/adminevent/AdminE';
+import AdminArtist from './admin/adminartist/AdminArtist';
+import AdminEvent from './admin/adminevent/AdminEvent';
+import AdminDeleteArtist from './admin/adminartist/AdminDeleteArtist';
+import AdminDeleteEvent from './admin/adminevent/AdminDeleteEvent';
+import AdminManageEvent from './admin/adminevent/AdminManageEvent';
+import AdminManageArtist from './admin/adminartist/AdminManageArtist';
 
 
 function App() {
