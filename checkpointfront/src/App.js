@@ -17,6 +17,8 @@ import AdminDeleteArtist from './admin/adminartist/AdminDeleteArtist';
 import AdminDeleteEvent from './admin/adminevent/AdminDeleteEvent';
 import AdminManageEvent from './admin/adminevent/AdminManageEvent';
 import AdminManageArtist from './admin/adminartist/AdminManageArtist';
+import AdminManageArtistList from './admin/adminartist/AdminManageArtistList';
+ 
 
 
 function App() {
@@ -32,12 +34,13 @@ function App() {
         <Route path="/admin/AdminGeneral" component={AdminGeneral} />
         <Route path="/admin/AdminA" component={AdminA} />
         <Route path="/admin/AdminE" component={AdminE} />
-        <Route path="/admin/AdminManageArtist" component={AdminManageArtist} />
+        <Route path="/admin/AdminManageArtist/:id" component={AdminManageArtist} />
         <Route path="/admin/AdminManageEvent" component={AdminManageEvent} />
         <Route path="/admin/AdminArtist" component={AdminArtist} />
         <Route path="/admin/AdminEvent" component={AdminEvent} />
         <Route path="/admin/AdminDeleteArtist" component={AdminDeleteArtist} />
         <Route path="/admin/AdminDeleteEvent" component={AdminDeleteEvent} />
+        <Route path="/admin/AdminManageArtistList" component={AdminManageArtistList} />
       </Switch>
       <Footer />
     </div>

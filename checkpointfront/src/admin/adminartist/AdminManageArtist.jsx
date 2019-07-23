@@ -7,13 +7,26 @@ class AdminManageArtist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      artists: 
+      {name: '',
       logo: '',
       presentation: '',
-      discipline: '',
+      discipline: '',}
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    const id = this.props.match.params.id
+    fetch(`http://localhost:3000/api/artist/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          artists: data[0],
+        });
+      });
+      console.log(this.state);
   }
 
   handleChange(event){
@@ -22,15 +35,16 @@ class AdminManageArtist extends Component {
     });
   }
   handleSubmit(event) {
+    const id = this.props.match.params.id;
     event.preventDefault();
       const config = {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(this.state.artists),
       };
-      const url = `http://localhost:3000/api/newartist`;
+      const url = `http://localhost:3000/api/artist/${id}`;
       fetch(url, config)
         .then((res) => {
           if (res.ok) {
@@ -44,6 +58,7 @@ class AdminManageArtist extends Component {
   }
 
   render() {
+    const { artists: {name, logo, presentation, discipline} } = this.state;
     return(
       <div className="AdminManageArtist">
         <div>
@@ -55,25 +70,25 @@ class AdminManageArtist extends Component {
               <span>
                 Nom:
               </span>
-              <input type="text" name="name" onChange={this.handleChange} />
+              <input type="text" name="name" onChange={this.handleChange} placeholder={name} />
             </label>
             <label>
               <span>
                 logo:
               </span>
-              <input type="text" name="logo" onChange={this.handleChange} />
+              <input type="text" name="logo" onChange={this.handleChange} placeholder={logo} />
+            <label>
+              <span>
+                Presentation:
+              </span>
+              <textarea name="presentation" onChange={this.handleChange} placeholder={presentation} />
+            </label>
             </label>
             <label>
               <span>
                 Discipline:
               </span>
-              <input type="text" name="discipline" onChange={this.handleChange} />
-            </label>
-            <label>
-              <span>
-                Presentation:
-              </span>
-              <textarea name="presentation" onChange={this.handleChange} />
+              <input type="text" name="discipline" onChange={this.handleChange} placeholder={discipline} />
             </label>
             <input type="submit" value="Envoyer" />
           </form>

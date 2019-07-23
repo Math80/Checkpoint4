@@ -1,0 +1,19 @@
+.AdminManageArtistList {
+  margin: auto;
+  background-color: rgb(184, 252, 217);
+  border-radius: 20px;
+  font-size: 2em;
+  width: 40%;
+  color: lightcoral;
+
+  img {
+    width: 40%;
+    margin: 10px;
+  }
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
