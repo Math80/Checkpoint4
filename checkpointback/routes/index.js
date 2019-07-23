@@ -57,6 +57,7 @@ router.get('/artist/:id', (req, response) => {
   const idartist = req.params.id;
   connection.query('SELECT a.id, a.name, a.logo, a.presentation, a.discipline FROM artist a WHERE id = ?', idartist, (err, results) => {
     if (err) {
+      console.log(err);
       response.sendStatus(500);
     } else {
       response.json(200, results);
