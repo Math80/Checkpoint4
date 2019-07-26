@@ -67,7 +67,7 @@ router.get('/artist/:id', (req, response) => {
 // afficher un event par id
 router.get('/event/:id', (req, response) => {
   const idevent = req.params.id;
-  connection.query('SELECT a.id, e.title, e.picture, e.article FROM event e WHERE id = ?', idevent, (err, results) => {
+  connection.query('SELECT e.id, e.title, e.picture, e.article, e.artist_id FROM event e WHERE id = ?', idevent, (err, results) => {
     if (err) {
       response.sendStatus(500);
     } else {
@@ -151,8 +151,10 @@ router.put('/artist/:id', (req, res) => {
 router.put('/event/:id', (req, res) => {
   const idevent = req.params.id;
   const formData = req.body;
+ console.log(formData);
   connection.query('UPDATE event SET ? WHERE id = ?', [formData, idevent], (err) => {
     if (err) {
+      console.log(err);
       res.sendStatus(500);
     } else {
       res.sendStatus(200);
