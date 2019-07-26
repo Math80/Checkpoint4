@@ -7,13 +7,25 @@ class AdminManageEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
+      events:
+      {title: '',
       picture: '',
       article: '',
-      artist_id: '',
+      artist_id: '',}
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    const id = this.props.match.params.id
+    fetch(`http://localhost:3000/api/event/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          events: data[0],
+        });
+      });
   }
 
   handleChange(event){
@@ -22,28 +34,33 @@ class AdminManageEvent extends Component {
     });
   }
   handleSubmit(event) {
+    const id = this.props.match.params.id;
+    const data = { ...this.state.events }
+    console.log(data);
     event.preventDefault();
       const config = {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(data),
       };
-      const url = `http://localhost:3000/api/newevent`;
+      const url = `http://localhost:3000/api/event/${id}`;
       fetch(url, config)
         .then((res) => {
           if (res.ok) {
-            NotificationManager.success('', 'Évènement ajouté avec succès!');
+            NotificationManager.success('', 'Évènement modifié avec succès!');
           } else {
-            NotificationManager.warning('', 'Erreur lors de l\'ajout de l\'évènement.', 3000);
+            NotificationManager.warning('', 'Erreur lors de la modification de l\'évènement.', 3000);
           }
         }).catch(() => {
-          NotificationManager.error('', 'Erreur lors de l\'ajout de l\'évènement.', 5000);
+          NotificationManager.error('', 'Erreur lors de la modification de l\'évènement.', 5000);
         });
   }
 
   render() {
+    console.log(this.state);
+    const { events: {title, picture, article, artist_id}} = this.state;
     return(
       <div className="AdminManageEvent">
         <div>
@@ -55,25 +72,25 @@ class AdminManageEvent extends Component {
               <span>
                 Nom de l'évènement:
               </span>
-              <input type="text" name="title" onChange={this.handleChange} />
+              <input type="text" name="title" onChange={this.handleChange} placeholder={title}/>
             </label>
             <label>
               <span>
                 Image:
               </span>
-              <input type="text" name="picture" onChange={this.handleChange} />
+              <input type="text" name="picture" onChange={this.handleChange} placeholder={picture}/>
             </label>
             <label>
               <span>
                 Article:
               </span>
-              <textarea name="article" onChange={this.handleChange} />
+              <textarea name="article" onChange={this.handleChange} placeholder={article} />
             </label>
             <label>
               <span>
                 Artiste:
               </span>
-              <input name="artist_id" onChange={this.handleChange} />
+              <input name="artist_id" onChange={this.handleChange} placeholder={artist_id} />
             </label>
             <input type="submit" value="Envoyer" />
           </form>
